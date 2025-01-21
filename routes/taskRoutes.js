@@ -28,7 +28,7 @@ router.get("/tasks/new", async (req, res) => {
     const projects = await projectOperations.getAllProjects()
     const tags = await tagOperations.getAllTags()
     log(`[Task] Fetched ${projects.length} projects and ${tags.length} tags`)
-    res.render("newTask", { projects, tags })
+    res.render("newTask", { projects, tags, title: "Task Creation" })
   } catch (error) {
     console.error("[Route] [Task] Error fetching projects and tags:", error)
     res.status(500).send("Server Error")
@@ -80,7 +80,7 @@ router.post("/tasks/:id/delete", async (req, res) => {
 // Create new project form
 router.get("/projects/new", (req, res) => {
   log("[Project] Rendering new project form")
-  res.render("newProject")
+  res.render("newProject", { title: "Project Creation" })
 })
 
 // Create new project
@@ -99,7 +99,7 @@ router.post("/projects", async (req, res) => {
 // Create new tag form
 router.get("/tags/new", (req, res) => {
   log("[Tag] Rendering new tag form")
-  res.render("newTag")
+  res.render("newTag", { title: "Tag Creation" })
 })
 
 // Create new tag
