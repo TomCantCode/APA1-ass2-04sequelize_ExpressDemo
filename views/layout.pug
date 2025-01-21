@@ -19,5 +19,8 @@ html
     main
       block content
     footer
-      p &copy; 2023 Task Manager. All rights reserved.
+      p &copy; Task Manager. All rights reserved.
+      script.
+        const currentYear = new Date().getFullYear();
+        document.querySelector('footer p').innerHTML = `&copy; ${currentYear} Task Manager. All rights reserved.`;
 
