@@ -81,5 +81,10 @@ body {
     margin-right: 5px;
     font-size: 0.8em;
   }
+
+a.link-no-style {
+    text-decoration: none;
+    color: inherit;
+}
   
   
