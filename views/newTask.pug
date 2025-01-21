@@ -11,16 +11,16 @@ block content
       textarea#description(name='description')
     div
       label(for='status') Status:
-      select#status(name='status')
+      select#status(name='status', required)
         option(value='To Do') To Do
         option(value='In Progress') In Progress
         option(value='Done') Done
     div
       label(for='dueDate') Due Date:
-      input#dueDate(type='date', name='dueDate')
+      input#dueDate(type='date', name='dueDate', required)
     div
       label(for='projectId') Project:
-      select#projectId(name='projectId')
+      select#projectId(name='projectId', required)
         option(value='') Select a project
         each project in projects
           option(value=project.id)= project.name
@@ -29,5 +29,10 @@ block content
       select#tags(name='tags', multiple)
         each tag in tags
           option(value=tag.id)= tag.name
-    button(type='submit') Add Task
+    button(type='submit', disabled=(projects.length === 0)) Add Task
+    
+    if projects.length === 0
+      script.
+        alert('You need to create at one project before adding a task.')
+        window.location.href = '/';
 
