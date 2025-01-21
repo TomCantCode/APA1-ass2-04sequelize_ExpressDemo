@@ -29,5 +29,10 @@ block content
       select#tags(name='tags', multiple)
         each tag in tags
           option(value=tag.id)= tag.name
-    button(type='submit') Add Task
+    button(type='submit', disabled=(projects.length === 0)) Add Task
+    
+    if projects.length === 0
+      script.
+        alert('You need to create at one project before adding a task.')
+        window.location.href = '/';
 
