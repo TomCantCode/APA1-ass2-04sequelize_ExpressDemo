@@ -11,16 +11,16 @@ block content
       textarea#description(name='description')
     div
       label(for='status') Status:
-      select#status(name='status')
+      select#status(name='status', required)
         option(value='To Do') To Do
         option(value='In Progress') In Progress
         option(value='Done') Done
     div
       label(for='dueDate') Due Date:
-      input#dueDate(type='date', name='dueDate')
+      input#dueDate(type='date', name='dueDate', required)
     div
       label(for='projectId') Project:
-      select#projectId(name='projectId')
+      select#projectId(name='projectId', required)
         option(value='') Select a project
         each project in projects
           option(value=project.id)= project.name
